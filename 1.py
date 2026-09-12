@@ -4,28 +4,27 @@ import time
 
 st.title("目押しアプリ")
 
-表示3= st.empty()
-表示2 = st.empty()
-表示1 = st.empty()
-if st.button("1ボタン"):
-    表示1= st.empty()
-    表示2 = st.empty()
-    表示3 = st.empty()
+if st.button("始める"):
+
+    表示1.empty()
+    表示2.empty()
+    表示3.empty()
+
     for i in range(10):
 
         数字1 = random.randint(1, 9)
         数字2 = random.randint(1, 9)
         数字3 = random.randint(1, 9)
 
-        表示1= st.write()
-        表示2 = st.write()
-        表示3 = st.write()
+        表示1.write(数字1)
+        表示2.write(数字2)
+        表示3.write(数字3)
 
         time.sleep(0.05)
 
-        表示1= st.empty()
-        表示2 = st.empty()
-        表示3 = st.empty()
+表示1= st.empty()
+表示2 =st.empty()
+表示3 =st.empty()
 
 
 #         数字=random.randint(1,9)
