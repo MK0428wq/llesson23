@@ -6,9 +6,9 @@ st.title("目押しアプリ")
 
 if st.button("始める"):
 
-    表示1.empty()
-    表示2.empty()
-    表示3.empty()
+    表示1=st.empty()
+    表示2=st.empty()
+    表示3=st.empty()
 
     for i in range(10):
 
