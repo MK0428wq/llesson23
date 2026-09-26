@@ -2,7 +2,7 @@ import streamlit as st
 import random
 import time
 
-st.title("目押しアプリ")
+st.title("合わせるゲーム")
 
 if st.button("始める"):
 
