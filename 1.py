@@ -2,29 +2,54 @@ import streamlit as st
 import random
 import time
 
-st.title("合わせるゲーム")
+st.title("スロットゲーム")
+
+# レベル
+if "レベル" not in st.session_state:
+    st.session_state.レベル = 1
+
+st.write("レベル", st.session_state.レベル)
 
 if st.button("始める"):
 
-    表示1=st.empty()
-    表示2=st.empty()
-    表示3=st.empty()
+    # レベルによって数字の数を決める
+    個数 = st.session_state.レベル * 3
 
-    for i in range(10):
+    表示 = []
 
-        数字1 = random.randint(1, 9)
-        数字2 = random.randint(1, 9)
-        数字3 = random.randint(1, 9)
+    # 数字を表示する場所を作る
+    for i in range(個数):
+        表示.append(st.empty())
 
-        表示1.write(数字1)
-        表示2.write(数字2)
-        表示3.write(数字3)
+    # 数字を動かす
+    for i in range(20):
+
+        数字 = []
+
+        for j in range(個数):
+            数字.append(random.randint(1, 9))
+
+        # 数字を表示
+        for j in range(個数):
+            表示[j].write(数字[j])
 
         time.sleep(0.05)
 
-表示1= st.empty()
-表示2 =st.empty()
-表示3 =st.empty()
+    # 全部同じか確認
+    if len(set(数字)) == 1:
+
+        st.balloons()
+        st.success("🎉 そろいました！")
+
+        # レベルアップ
+        st.session_state.レベル += 1
+
+        st.write("レベルアップ！")
+        st.write("次は", st.session_state.レベル * 3, "個です！")
+
+    else:
+        st.write("そろいませんでした")
+
 
 
 #         数字=random.randint(1,9)
@@ -64,4 +89,3 @@ if st.button("始める"):
 #         # # st.write(数)
 #         # time.sleep(0.05)
 #         # 表示.empty()
-st.button("STOP")
